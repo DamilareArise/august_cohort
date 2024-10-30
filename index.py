@@ -1164,7 +1164,35 @@ def dashboard():
         dashboard()
 
 def resultStatistic():
-    pass
+    # [
+    #     {'fullname': 'Ola', 'score':20},
+    #     {'fullname': 'Ope', 'score':25}
+    # ]
+
+    scores = []
+
+    if not student_db:
+        print('No student found kindly register students...')
+        registerStudent()
+    
+    print('Student Result...')
+    for student in student_db:
+        print(f"fullname: {student['fullname']}\nScore: {student['score']}\n")
+        scores.append(student['score'])
+
+    max_score = max(scores)
+    index_maxScore = scores.index(max_score) # 1
+    max_student =  student_db[index_maxScore] # {'fullname': 'Ope', 'score':25}
+    print(f"{max_student['fullname']} got the highest score ")
+
+    min_score = min(scores)
+    index_minScore = scores.index(min_score) # 1
+    min_student =  student_db[index_minScore] # {'fullname': 'Ope', 'score':25}
+    print(f"{min_student['fullname']} got the lowest score ")
+
+    print(f"The avarage score is {sum(scores)/len(scores)}")
+
+
 
 def takeTest():
     global student_db
@@ -1283,17 +1311,129 @@ class Exam:
                 self.registerStudent()
 
     def resultStatistic(self):
-        pass
+        scores = []
+
+        if not self.student_db:
+            print('No student found kindly register students...')
+            self.registerStudent()
+        
+        print('Student Result...')
+        for student in self.student_db:
+            print(f"fullname: {student['fullname']}\nScore: {student['score']}\n")
+            scores.append(student['score'])
+
+        max_score = max(scores)
+        index_maxScore = scores.index(max_score) # 1
+        max_student =  self.student_db[index_maxScore] # {'fullname': 'Ope', 'score':25}
+        print(f"{max_student['fullname']} got the highest score ")
+
+        min_score = min(scores)
+        index_minScore = scores.index(min_score) # 1
+        min_student =  self.student_db[index_minScore] # {'fullname': 'Ope', 'score':25}
+        print(f"{min_student['fullname']} got the lowest score ")
+
+        print(f"The avarage score is {sum(scores)/len(scores)}")
+
+        self.dashboard()
 
 
-test1 = Exam()
-test1.quest_ans.update({'4. What is the capital of Turkey a. Ankara b. Lace c. Buba': 'a'})
+# test1.quest_ans.update({'4. What is the capital of Turkey a. Ankara b. Lace c. Buba': 'a'})
 # test1.quest_ans = {'4. What is the capital of Turkey a. Ankara b. Lace c. Buba': 'a'}
 # print(test1.quest_ans)
 
-test1.dashboard()
+# test1.dashboard()
 
 
 
 # test2 = Exam()
 # print(test2.quest_ans)
+
+
+# 1. python Scripts - This just a python(.py) file with bunch of python syntax
+# 2. python module - This is pyhton file that contains exportable functions, variables or class
+# 3. python library - This is a folder that contains one or more python modules
+
+# import datetime as dt
+# from datetime import date
+# import time
+# import calendar
+# from colorama import just_fix_windows_console
+# just_fix_windows_console()
+# from colorama import init, Fore, Back, Style
+# init()
+# import pandas, numpy
+import random
+
+
+# mydate = date.today()
+# print('Loading...')
+# time.sleep(2)
+# print(mydate)
+
+# year = calendar.calendar(2024)
+# print(Fore.GREEN + Style.DIM +  calendar.month(2024,10))
+
+# val = random.randint(2100000000, 2199999999)
+# val = random.randint(2348100000000, 2348199999999)
+# print(f'+{val}')
+
+Fruits = ['Orange', 'Pineapple', 'Cherry', 'Mango', 'Watermelon']
+# print(random.sample(Fruits, 3))
+# print(random.choice(Fruits))
+# random.shuffle(Fruits)
+# print(Fruits)
+
+# numbers = list(range(0, 100))
+# print(random.sample(numbers, 10))
+
+
+# SQL 1
+'''
+DBMS -> Database management system
+Two basic types of DBMS
+1. Relational DBMS (RDBMS) 
+- SQL(Structured Query Language)
+Tables (row and columns)
+e.g 
+mySchool Database
+- student table
+- teachingStaff table
+- nonTeachingStaff table
+- expenditure table
+- revenue table
+
+# Application
+- mySQL, postgreSQL, Oracle, MicrosoftSQL, SQLlite e.t.c
+
+
+
+2. Non-relational DBMS (NoSQL)
+- Cluster - Group of Databases
+- Database - e.g mySchool Database
+- Collection - Group of Document
+    e.g studentCollection
+    [
+        {
+            studentName: Ope,
+            age: 30
+        },
+
+        {
+            studentName: Ayo,
+            age: 30
+        }
+
+    
+    ]
+
+- Document - The Information Itself
+    
+    e.g {
+            studentName: Ope,
+            age: 30
+        }
+
+# Application
+- MongoDB, Cassandra, Redis, Couchbase e.t.c
+
+'''
