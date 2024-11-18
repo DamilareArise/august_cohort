@@ -9,3 +9,4 @@ def get_percent(score:float|int, total_score:int|float = 100) -> float|int:
     score_in_percent = (score/total_score) * 100
     return score_in_percent
 
+print('✅✅ (❁´◡`❁)')
