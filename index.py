@@ -1436,4 +1436,19 @@ mySchool Database
 # Application
 - MongoDB, Cassandra, Redis, Couchbase e.t.c
 
+types of relationship
+one to one relationship e.g relation between user_table and profile_table
+    user table                                          profile table
+user_id      email       password                    profile_id          phone       fullname        NIN      user_id   
+1       ope@gmail   123456                      1                   0801234567          ayo         23234          2
+2       ayo@gmail   123456                      2                   0801234567          ope         87645          1
+
+one to many relationship e.g relation between user_table and transaction_table
+
+user table                                                  transaction table
+
+user_id      fullname            |         transaction_id          amount          type        user_id
+1            Ope                 |          1                        1000          credit       1
+                                            2                        2000          debit        1
+
 '''
